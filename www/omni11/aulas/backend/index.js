@@ -5,7 +5,10 @@ const app = express();
 
 //adicionando rota para a aplicação e mensagem hello world
 app.get('/', (request, response)=> {
-    return response.send('Hello World');
+    return response.json({
+        evento: 'Semana OmniStack 11.0',
+        aluno: 'Robson Lima'
+    });
 });
 
 //diz para a aplicação ouvir a porta 3333 do localhost
