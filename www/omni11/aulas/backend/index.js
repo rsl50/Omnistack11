@@ -3,6 +3,8 @@ const express = require('express');
 
 const app = express();
 
+app.use(express.json());
+
 //adicionando rota para a aplicação e mensagem hello world
 // rotas são recursos a serem acessados
 /** 
@@ -18,12 +20,12 @@ const app = express();
  * 
  * Query Params: Parâmetros nomeados enviados na rota após "?" (filtros, paginação)
  * Route Params: Parâmetros utilizados para identificar a recursos
- * Request Body: 
+ * Request Body: Corpo da requisição, utilizado para criar ou alterar recursos
  * 
  */
 
-app.get('/users/:id', (request, response)=> {
-    const params = request.params;
+app.post('/users/', (request, response)=> {
+    const params = request.body;
 
     console.log(params);
 
