@@ -21,3 +21,5 @@ routes.post('/ongs', async (request, response)=> {
     })
     return response.json({ id });
 });
+
+module.exports = routes;
