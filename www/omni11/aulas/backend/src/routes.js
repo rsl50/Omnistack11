@@ -1,25 +1,16 @@
 const express = require('express');
-const crypto = require('crypto');
-const connection = require('./database/connection');
 
 const routes = express.Router();
 
-routes.post('/ongs', async (request, response)=> {
-    const {name, email, whatsapp, city, uf} = request.body;
+routes.post('/users/', (request, response)=> {
+    const params = request.body;
 
-    //gera o id da ong
-    const id = crypto.randomBytes(4).toString('HEX');
+    console.log(params);
 
-    await connection('ongs').insert({
-        id,
-        name,
-        email,
-        whatsapp,
-        city,
-        uf,
-    })
-
-    return response.json({ id });
+    return response.json({
+        evento: 'Semana OmniStack 11.0',
+        aluno: 'Robson Souza'
+    });
 });
 
 module.exports = routes;
