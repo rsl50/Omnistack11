@@ -2,7 +2,25 @@ const connection = require('../database/connection');
 
 module.exports = {
     async index(request, response) {        
-        const incidents = await connection('incidents').select('*');            
+        //paginação para leitura dos resultados
+        const {page = 1} = request.query;
+
+        //quantidade total de casos, 
+        //como a resposta é um valor só pode ser const [count],
+        //caso fosse um array maior poderia ler depois com count[0]
+        const [count] = await connection('incidents').count();
+
+        //loga a variável count
+        //console.log(count);
+
+        //limitação do select para paginação dos resultados de 5 em 5
+        const incidents = await connection('incidents')
+            .limit(5)    
+            .offset((page - 1) * 5)
+            .select('*');
+
+        response.header('X-Total-Count', count['count(*)']);
+
         return response.json(incidents);
     },
 
