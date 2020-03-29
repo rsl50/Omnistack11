@@ -1,8 +1,19 @@
 //importar funcionalidades do express para variável express
 const express = require('express');
+
+//módulo de segurança cors
+const cors = require('cors');
+
 const routes = require('./routes');
 
 const app = express();
+
+//app.use(cors({
+    //endereço de acesso da aplicação. ex. http://meuapp.com
+    //origin: 'http://meuapp.com'
+//}));
+//para desenvolvimento usamos assim, para permitir qualquer front-end acessar aplicação
+app.use(cors());
 
 app.use(express.json());
 app.use(routes);
