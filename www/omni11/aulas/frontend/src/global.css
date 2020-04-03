@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* resets de css */
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+
+    /* o padding dos elementos será anexado na largura e altura e não somados */
+    box-sizing: border-box;
+}
+
+body {
+    font: 400 14px Roboto, sans-serif;
+    background: #f0f0f5;
+    -webkit-font-smoothing: antialiased;
+}
+
+input, button, textarea {
+    font: 400 14px Roboto, sans-serif;
+}
+
+button {
+    /* cursor com ícone para clicar */
+    cursor: pointer;
+}
