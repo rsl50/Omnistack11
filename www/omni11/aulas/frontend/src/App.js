@@ -1,16 +1,9 @@
-import React, {useState} from 'react';
-import Header from './Header';
+import React from 'react';
+import Logon from './pages/Logon';
+
 function App() {
-  //estado para armazenar o valor e permitir a atualização na tela
-  const [counter, setCounter] = useState(0);
-  function increment() {
-    setCounter(counter + 1);
-  }
   return (
-    <div>
-      <Header>Contador: {counter}</Header>
-      <button onClick={increment}>Incrementar</button>
-    </div>
+    <Logon />
   );
 }
 export default App;
