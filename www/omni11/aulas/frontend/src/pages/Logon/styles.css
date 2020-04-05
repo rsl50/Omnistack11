@@ -9,7 +9,7 @@
     /* alinha vericalmente ao centro */
     align-items: center;
     /* alinha horizontalmente ao centro */
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .logon-container section.form {
