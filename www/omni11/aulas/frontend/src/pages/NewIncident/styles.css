@@ -1,0 +1,54 @@
+.new-incident-container {
+    width: 100%;
+    max-width: 1120px;
+    height: 100vh;
+    /* mantém conteúdo centralizado na tela */
+    margin: 0 auto;
+
+    display: flex;
+    /* alinha vericalmente ao centro */
+    align-items: center;
+    /* alinha horizontalmente ao centro */
+    justify-content: center;
+}
+
+.new-incident-container .content {
+    width: 100%;
+    padding: 96px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+    display: flex;
+
+    /* divide as sessões entre esquerda e direita */
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.new-incident-container .content section {
+    width: 100%;
+    max-width: 380px;
+}
+
+.new-incident-container .content section h1 {
+    margin: 64px 0 32px;
+    font-size: 32px;
+}
+
+.new-incident-container .content section p {
+    font-size: 18px;
+    color: #737380;
+    line-height: 32px;
+}
+
+.new-incident-container .content form {
+    width: 100%;
+    max-width: 450px;
+}
+
+.new-incident-container .content form input,
+.new-incident-container .content form textarea {
+    margin-top: 8px;
+}
