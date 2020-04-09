@@ -1,5 +1,8 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { View, Image, Text, TouchableOpacity } from 'react-native';
+
+/* TouchableOpacity permite transformar algo em clicável e reduz a opacidade no toque */
 
 import logoImg from '../../assets/logo.png';
 
@@ -17,7 +20,69 @@ export default function Incidents () {
 
             <Text style={styles.title}>Bem-vindo!</Text>
             <Text style={styles.description}>Escolha um dos casos abaixo e salve o dia.</Text>
+            
+            <View style={styles.incidentList}>
+                <View style={styles.incident}>
+                    <Text style={styles.incidentProperty}>ONG:</Text>
+                    <Text style={styles.incidentValue}>Catland</Text>
 
+                    <Text style={styles.incidentProperty}>CASO:</Text>
+                    <Text style={styles.incidentValue}>Vacina Gato</Text>
+
+                    <Text style={styles.incidentProperty}>VALOR:</Text>
+                    <Text style={styles.incidentValue}>R$ 80,00</Text>
+
+                    <TouchableOpacity 
+                        style={styles.detailsButton} 
+                        onPress={() => {}}
+                    >
+
+                    </TouchableOpacity>
+
+                    <Text styles={styles.detailsButtonText}>Ver mais detalhes</Text>
+                    <Feather name="arrow-right" size={16} color="#e02041"/>
+                </View>
+
+                <View style={styles.incident}>
+                    <Text style={styles.incidentProperty}>ONG:</Text>
+                    <Text style={styles.incidentValue}>Catland</Text>
+
+                    <Text style={styles.incidentProperty}>CASO:</Text>
+                    <Text style={styles.incidentValue}>Vacina Gato</Text>
+
+                    <Text style={styles.incidentProperty}>VALOR:</Text>
+                    <Text style={styles.incidentValue}>R$ 80,00</Text>
+
+                    <TouchableOpacity 
+                        style={styles.detailsButton} 
+                        onPress={() => {}}
+                    >
+
+                    </TouchableOpacity>
+
+                    <Text styles={styles.detailsButtonText}>Ver mais detalhes</Text>
+                    <Feather name="arrow-right" size={16} color="#e02041"/>
+                </View>
+
+                <View style={styles.incident}>
+                    <Text style={styles.incidentProperty}>ONG:</Text>
+                    <Text style={styles.incidentValue}>Catland</Text>
+
+                    <Text style={styles.incidentProperty}>CASO:</Text>
+                    <Text style={styles.incidentValue}>Vacina Gato</Text>
+
+                    <Text style={styles.incidentProperty}>VALOR:</Text>
+                    <Text style={styles.incidentValue}>R$ 80,00</Text>
+
+                    <TouchableOpacity 
+                        style={styles.detailsButton} 
+                        onPress={() => {}}
+                    >
+                        <Text style={styles.detailsBottonText}>Ver mais detalhes</Text>
+                        <Feather name="arrow-right" size={16} color="#E02041"/>
+                    </TouchableOpacity>
+                </View>
+            </View>
         </View>
     );
 }
