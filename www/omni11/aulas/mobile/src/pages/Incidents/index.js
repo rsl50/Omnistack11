@@ -7,6 +7,7 @@ import { View, Image, Text, TouchableOpacity } from 'react-native';
 import logoImg from '../../assets/logo.png';
 
 import styles from './styles';
+import { FlatList } from 'react-native-gesture-handler';
 
 export default function Incidents () {
     return (
@@ -21,68 +22,31 @@ export default function Incidents () {
             <Text style={styles.title}>Bem-vindo!</Text>
             <Text style={styles.description}>Escolha um dos casos abaixo e salve o dia.</Text>
             
-            <View style={styles.incidentList}>
-                <View style={styles.incident}>
-                    <Text style={styles.incidentProperty}>ONG:</Text>
-                    <Text style={styles.incidentValue}>Catland</Text>
+            <FlatList 
+                data={[1, 2, 3]}
+                style={styles.incidentList}
+                keyExtractor={incident => String(incident)}
+                renderItem={() => (
+                    <View style={styles.incident}>
+                        <Text style={styles.incidentProperty}>ONG:</Text>
+                        <Text style={styles.incidentValue}>Catland</Text>
 
-                    <Text style={styles.incidentProperty}>CASO:</Text>
-                    <Text style={styles.incidentValue}>Vacina Gato</Text>
+                        <Text style={styles.incidentProperty}>CASO:</Text>
+                        <Text style={styles.incidentValue}>Vacina Gato</Text>
 
-                    <Text style={styles.incidentProperty}>VALOR:</Text>
-                    <Text style={styles.incidentValue}>R$ 80,00</Text>
+                        <Text style={styles.incidentProperty}>VALOR:</Text>
+                        <Text style={styles.incidentValue}>R$ 80,00</Text>
 
-                    <TouchableOpacity 
-                        style={styles.detailsButton} 
-                        onPress={() => {}}
-                    >
-
-                    </TouchableOpacity>
-
-                    <Text styles={styles.detailsButtonText}>Ver mais detalhes</Text>
-                    <Feather name="arrow-right" size={16} color="#e02041"/>
-                </View>
-
-                <View style={styles.incident}>
-                    <Text style={styles.incidentProperty}>ONG:</Text>
-                    <Text style={styles.incidentValue}>Catland</Text>
-
-                    <Text style={styles.incidentProperty}>CASO:</Text>
-                    <Text style={styles.incidentValue}>Vacina Gato</Text>
-
-                    <Text style={styles.incidentProperty}>VALOR:</Text>
-                    <Text style={styles.incidentValue}>R$ 80,00</Text>
-
-                    <TouchableOpacity 
-                        style={styles.detailsButton} 
-                        onPress={() => {}}
-                    >
-
-                    </TouchableOpacity>
-
-                    <Text styles={styles.detailsButtonText}>Ver mais detalhes</Text>
-                    <Feather name="arrow-right" size={16} color="#e02041"/>
-                </View>
-
-                <View style={styles.incident}>
-                    <Text style={styles.incidentProperty}>ONG:</Text>
-                    <Text style={styles.incidentValue}>Catland</Text>
-
-                    <Text style={styles.incidentProperty}>CASO:</Text>
-                    <Text style={styles.incidentValue}>Vacina Gato</Text>
-
-                    <Text style={styles.incidentProperty}>VALOR:</Text>
-                    <Text style={styles.incidentValue}>R$ 80,00</Text>
-
-                    <TouchableOpacity 
-                        style={styles.detailsButton} 
-                        onPress={() => {}}
-                    >
-                        <Text style={styles.detailsBottonText}>Ver mais detalhes</Text>
-                        <Feather name="arrow-right" size={16} color="#E02041"/>
-                    </TouchableOpacity>
-                </View>
-            </View>
+                        <TouchableOpacity 
+                            style={styles.detailsButton} 
+                            onPress={() => {}}
+                            >
+                                <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
+                                <Feather name="arrow-right" size={16} color='#e02041' />
+                        </TouchableOpacity>
+                    </View>
+                )}
+            />
         </View>
     );
 }
