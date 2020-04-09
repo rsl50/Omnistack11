@@ -50,7 +50,7 @@ export default function Register() {
 
                     <Link className="back-link" to="/">
                         <FiArrowLeft size={16} color="#e02041" />
-                        Voltar para home
+                        Não tenho cadastro
                     </Link>
                 </section>
 
