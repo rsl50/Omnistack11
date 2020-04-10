@@ -14,7 +14,7 @@ export default function Detail () {
     
     /* incident é o nome do parâmetro enviado pela outra tela*/
     const incident = route.params.incident;
-    const message = 'Olá Catland, estou entrando em contato pois gostaria de ajudar no caso "Vacina Gato" com o valor de R$80,00.';
+    const message = `Olá ${incident.name}, estou entrando em contato pois gostaria de ajudar no caso "${incident.title}" com o valor de "${Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL' }).format(incident.value)}".`;
 
     function navigateToDetail() {
         navigation.goBack();
@@ -22,14 +22,14 @@ export default function Detail () {
 
     function sendMail() {
         MailComposer.composeAsync({
-            subject: 'Herói do caso: Vacina Gato',
-            recipients: ['rsl.robson@gmail.com'],
+            subject: `Herói do caso: ${incident.title}`,
+            recipients: [incident.email],
             body: message, 
         })
     }
 
     function sendWhatsapp() {
-        Linking.openURL(`whatsapp://send?phone=5511987413541&text=${message}`);
+        Linking.openURL(`whatsapp://send?phone=${incident.whatsapp}&text=${message}`);
     }
 
     return (
@@ -51,12 +51,7 @@ export default function Detail () {
                 <Text style={styles.incidentValue}>{incident.description}</Text>
 
                 <Text style={styles.incidentProperty}>VALOR:</Text>
-                <Text style={styles.incidentValue}>
-                    {Intl.NumberFormat('pt-BR', { 
-                        style: 'currency', 
-                        currency: 'BRL' 
-                    }).format(incident.value)}    
-                </Text>
+                <Text style={styles.incidentValue}> {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(incident.value)} </Text>
             </View>
 
             <View style={styles.contactBox}>

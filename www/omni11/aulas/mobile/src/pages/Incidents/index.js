@@ -1,7 +1,7 @@
 import React,  { useState, useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, FlatList, Image, Text, TouchableOpacity } from 'react-native';
 
 import api from '../../services/api';
 
@@ -10,11 +10,13 @@ import api from '../../services/api';
 import logoImg from '../../assets/logo.png';
 
 import styles from './styles';
-import { FlatList } from 'react-native-gesture-handler';
 
 export default function Incidents () {
     const [incidents, setIncidents] = useState([]);
     const [total, setTotal] = useState(0);
+    /* armazena página e estado para paginação */
+    const [page, setPage] = useState(1);
+    const [loading, setLoading] = useState(false);
 
     const navigation = useNavigation();
 
@@ -24,14 +26,34 @@ export default function Incidents () {
     }
 
     async function loadIncidents() {
-        const response = await api.get('incidents');
-        setIncidents(response.data);
+        /* evita repetir atualização da tela no scroll infinito */
+        if (loading) {
+            return;
+        }
+
+        /* Se já carregou tudo, não precisa carregar mais */
+        if (total > 0 && incidents.length === total){
+            return;
+        }
+
+        setLoading(true);
+
+        const response = await api.get('incidents', {
+            params: { page }
+        });
+
+        /* copia os valores recebidos no response em incidents para continuar rolagem da tela */
+        setIncidents([... incidents, ... response.data]);
         setTotal(response.headers['x-total-count']);
+        
+        /* muda estado para próxima página */
+        setPage(page + 1);
+        setLoading(false);
     }
 
     /* Atualiza a tela quando os itens do array são alterados */
     useEffect(() => {
-        loadIncidents()
+        loadIncidents();
       }, [])
 
     return (
@@ -50,7 +72,9 @@ export default function Incidents () {
                 data={incidents}
                 style={styles.incidentList}
                 keyExtractor={incident => String(incident.id)}
-                showsVerticalScrollIndicator={false}
+                //showsVerticalScrollIndicator={false}
+                onEndReached={loadIncidents}
+                onEndReachedThreshold={0.2} /* 20% do final da lista, começa carregar novos itens */
                 
                 /* Coloca o objeto item na variável incident */
                 renderItem={({ item: incident }) => (
@@ -62,12 +86,7 @@ export default function Incidents () {
                         <Text style={styles.incidentValue}>{incident.title}</Text>
 
                         <Text style={styles.incidentProperty}>VALOR:</Text>
-                        <Text style={styles.incidentValue}>
-                            {Intl.NumberFormat('pt-BR', { 
-                                style: 'currency', 
-                                currency: 'BRL' 
-                            }).format(incident.value)}
-                        </Text>
+                        <Text style={styles.incidentValue}> {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(incident.value)} </Text>
 
                         <TouchableOpacity 
                             style={styles.detailsButton} 
