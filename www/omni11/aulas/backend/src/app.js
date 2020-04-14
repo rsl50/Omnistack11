@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(routes);
 app.use(errors());
 
-app.listen(3333);
+module.exports = app;
 
 //adicionando rota para a aplicação e mensagem hello world
 // rotas são recursos a serem acessados
