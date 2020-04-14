@@ -30,7 +30,7 @@
 </p>
 
 <p align="center">
-  <a href="https://insomnia.rest/run/?label=SemanaOmnistack11&uri=https%3A%2F%2Fraw.githubusercontent.com%2Frsl50%2FOmnistack11%2Fmaster%2FInsomnia_2020-04-14.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+  <a href="https://insomnia.rest/run/?label=SemanaOmnistack11&uri=https://raw.githubusercontent.com/rsl50/Omnistack11/master/.github/Insomnia_2020-04-14.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
 
 <p align="center">
