@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
 import api from '../../services/api';
@@ -9,7 +9,7 @@ import logoImg from '../../assets/logo.svg';
 
 
 export default function Register() {
-    const history = useHistory();
+    const navigate = useNavigate();
     
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -33,7 +33,7 @@ export default function Register() {
             /* usar crase no lugar de aspas permite colocar variáveis no texto */
             alert(`Seu ID do acesso: ${response.data.id}`);
 
-            history.push('/');
+            navigate('/');
         } catch (err) {
             alert('Erro no cadastro, tente novamente.');
         }
