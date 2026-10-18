@@ -1,44 +1,36 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
+  "name": "mobile",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject"
+    "web": "expo start --web"
   },
   "dependencies": {
-    "@react-native-community/masked-view": "0.1.6",
-    "@react-navigation/native": "^5.1.5",
-    "@react-navigation/stack": "^5.2.10",
-    "axios": "^0.34.0",
-    "expo": "~37.0.3",
-    "expo-constants": "~9.0.0",
-    "expo-mail-composer": "~8.1.0",
-    "intl": "^1.2.5",
-    "react": "~16.9.0",
-    "react-dom": "~16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
-    "react-native-gesture-handler": "~1.6.0",
-    "react-native-reanimated": "~1.7.0",
-    "react-native-safe-area-context": "0.7.3",
-    "react-native-screens": "~2.2.0",
-    "react-native-web": "~0.11.7"
+    "@expo/metro-runtime": "~58.0.14",
+    "@expo/vector-icons": "^15.0.2",
+    "@react-navigation/native": "^7.5.1",
+    "@react-navigation/stack": "^7.12.1",
+    "axios": "^1.20.0",
+    "expo": "~58.0.14",
+    "expo-constants": "~58.0.12",
+    "expo-font": "~58.0.8",
+    "expo-mail-composer": "~58.0.3",
+    "expo-splash-screen": "~58.0.10",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.0",
+    "react-native-gesture-handler": "~3.3.0",
+    "react-native-safe-area-context": "~5.10.1",
+    "react-native-screens": "~4.30.0",
+    "react-native-web": "^0.21.4"
   },
-  "devDependencies": {
-    "@babel/core": "^7.29.7",
-    "babel-preset-expo": "~8.1.0"
-  },
-  "private": true,
   "overrides": {
-    "logkitty": "^0.7.1",
-    "shell-quote": "^1.9.0",
-    "tmp": "^0.2.6",
-    "cross-spawn": "^6.0.6",
-    "node-fetch": "^2.6.7",
-    "brace-expansion@1": "^1.1.21",
-    "js-yaml@3": "^3.14.2",
-    "form-data": "^2.5.6",
-    "metro-react-native-babel-preset": "0.59.0"
+    "xcode": {
+      "uuid": "^11.1.1"
+    }
   }
 }

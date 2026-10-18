@@ -1,9 +1,8 @@
-// Build UMD (ES5) do axios: o Metro do Expo SDK 37 não resolve o campo
-// "browser" do pacote e tentaria incluir o adaptador HTTP do Node.
-import axios from 'axios/dist/axios';
+import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://192.168.0.143:3333',
+    // Defina EXPO_PUBLIC_API_URL no .env (ex.: http://192.168.0.143:3333)
+    baseURL: process.env.EXPO_PUBLIC_API_URL ?? 'http://192.168.0.143:3333',
 });
 
 export default api;
